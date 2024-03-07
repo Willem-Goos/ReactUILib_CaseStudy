@@ -1,26 +1,19 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import PiSelect_Radix from "./Radix/PiSelect_Radix";
+import {useState} from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const values = ["Option 1", "Option 2", "Option 3"];
+    const [selectedIndex, setSelectedIndex] = useState<number>(0);
+
+    return (
+        <div className="App">
+            <PiSelect_Radix selectedIndex={selectedIndex} values={values}  onChange={setSelectedIndex}/>
+        </div>
+    );
 }
 
 export default App;

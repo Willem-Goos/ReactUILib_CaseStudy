@@ -1,0 +1,120 @@
+﻿/* Import only the scales you need */
+@import '@radix-ui/colors/black-alpha.css';
+@import '@radix-ui/colors/mauve.css';
+@import '@radix-ui/colors/violet.css';
+
+/* reset */
+button {
+    all: unset;
+}
+
+
+.SelectTrigger {
+    position: relative;
+    display: inline-flex;
+    width: 200px;
+    padding: 4px 12px;
+    border-radius: 50px;
+    border: 2px solid var(--pi-blue);
+    color: black;
+    font-family: Poppins;
+    cursor: pointer;
+}
+
+.SelectTrigger:hover {
+    background-color: var(--mauve-3);
+}
+
+
+.SelectTrigger[data-placeholder] {
+    color: var(--violet-9);
+}
+
+.SelectIcon {
+    color: black;
+    width: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-right: 4px;
+    margin-left: auto;
+    transform: rotate(0deg);
+    transition: transform 0.1s ease-in-out;
+}
+
+.SelectTrigger[data-state='open'] .SelectIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(180deg);
+    transition: transform 0.1s ease-in-out;
+}
+
+
+.SelectContent {
+    overflow: hidden;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0px 10px 38px -10px rgba(22, 23, 24, 0.35), 0px 10px 20px -15px rgba(22, 23, 24, 0.2);
+    width: 224px;
+    margin-top: 8px;
+    font-family: Poppins;
+}
+
+.SelectViewport {
+    padding: 5px;
+}
+
+.SelectItem {
+    font-size: 16px;
+    color: black;
+    padding: 4px 8px;
+    font-weight: 400;
+    user-select: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 4px 0px;
+}
+
+.SelectItem[data-disabled] {
+    color: var(--mauve-8);
+    pointer-events: none;
+}
+
+.SelectItem[data-highlighted] {
+    outline: none;
+    background-color: var(--pi-main-hover);
+}
+
+.SelectLabel {
+    padding: 0 25px;
+    font-size: 12px;
+    line-height: 25px;
+    color: var(--mauve-11);
+}
+
+.SelectSeparator {
+    height: 1px;
+    background-color: var(--violet-6);
+    margin: 5px;
+}
+
+.SelectItemIndicator {
+    position: absolute;
+    left: 0;
+    width: 25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.SelectScrollButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+    background-color: white;
+    color: var(--violet-11);
+    cursor: default;
+}
