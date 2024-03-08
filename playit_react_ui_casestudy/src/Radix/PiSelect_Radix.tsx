@@ -15,6 +15,11 @@ export default function PiSelect_Radix(props: PiSelectProps) {
     const {selectedIndex, values, onChange} = {...props};
     const [selected, setSelected] = useState<string>("not-set");
 
+    const onValueChanged = (value: string) => {
+        var index = values.indexOf(value);
+        onChange(index);
+    }
+
     const options = values.map(value => {
             return <Select.Item className={"SelectItem"} key={value} value={value}>
                 {value}
@@ -22,32 +27,26 @@ export default function PiSelect_Radix(props: PiSelectProps) {
         }
     );
 
-    const onValueChanged = (value: string) => {
-        var index = values.indexOf(value);
-        onChange(index);
-    }
-
-    return <>
-        <Select.Root onValueChange={onValueChanged} defaultValue={values[selectedIndex]}>
-            <Select.Trigger className="SelectTrigger">
-                <Select.Value className={"SelectValue"}>
-                    {values[selectedIndex]}
-                </Select.Value>
-                <Select.Icon className={"SelectIcon"}>
-                    <ChevronDownIcon />
-                </Select.Icon>
-            </Select.Trigger>
-            <Select.Portal>
-                <Select.Content className="SelectContent">
-                    <Select.ScrollUpButton/>
-                    <Select.Viewport className="SelectViewport">
-                        {options}
-                        <Select.Separator/>
-                    </Select.Viewport>
-                    <Select.ScrollDownButton/>
-                    <Select.Arrow/>
-                </Select.Content>
-            </Select.Portal>
-        </Select.Root>
-    </>
+    return (<Select.Root onValueChange={onValueChanged} defaultValue={values[selectedIndex]}>
+        <Select.Trigger className="SelectTrigger">
+            <Select.Value className={"SelectValue"}>
+                {values[selectedIndex]}
+            </Select.Value>
+            <Select.Icon className={"SelectIcon"}>
+                <ChevronDownIcon width={20} height={20}/>
+            </Select.Icon>
+        </Select.Trigger>
+        <Select.Portal>
+            <Select.Content className="SelectContent">
+                <Select.ScrollUpButton/>
+                <Select.Viewport className="SelectViewport">
+                    {options}
+                    <Select.Separator/>
+                </Select.Viewport>
+                <Select.ScrollDownButton/>
+                <Select.Arrow/>
+            </Select.Content>
+        </Select.Portal>
+    </Select.Root>);
+    
 }

@@ -12,13 +12,19 @@ button {
 .SelectTrigger {
     position: relative;
     display: inline-flex;
-    width: 200px;
-    padding: 4px 12px;
+    width: 264px;
+    padding: 4px 8px;
+    box-sizing: border-box;
     border-radius: 50px;
     border: 2px solid var(--pi-blue);
     color: black;
     font-family: Poppins;
     cursor: pointer;
+    z-index: 100;
+}
+
+.SelectTrigger:focus {
+    outline: none;
 }
 
 .SelectTrigger:hover {
@@ -57,9 +63,10 @@ button {
     background-color: white;
     border-radius: 6px;
     box-shadow: 0px 10px 38px -10px rgba(22, 23, 24, 0.35), 0px 10px 20px -15px rgba(22, 23, 24, 0.2);
-    width: 224px;
+    width: 264px;
     margin-top: 8px;
     font-family: Poppins;
+    z-index: 100;
 }
 
 .SelectViewport {

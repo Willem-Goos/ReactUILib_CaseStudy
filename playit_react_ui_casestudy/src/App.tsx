@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import PiSelect_Radix from "./Radix/PiSelect_Radix";
 import {useState} from "react";
+import PiSelect_Tailwind from "./Tailwind/PiSelect_Tailwind";
+import PiCard from "./Tailwind/PiCard";
 
 function App() {
 
@@ -10,9 +12,26 @@ function App() {
     const [selectedIndex, setSelectedIndex] = useState<number>(0);
 
     return (
-        <div className="App">
-            <PiSelect_Radix selectedIndex={selectedIndex} values={values}  onChange={setSelectedIndex}/>
-        </div>
+        <>
+            <div className="App flex gap-4 bg-dark-100 w-screen h-screen p-5">
+                <PiCard>
+                    <h2 className={"font-poppins font-bold mb-5"}>Tailwind + Headless UI</h2>
+                    <div className={"w-264"}>
+                        <PiSelect_Tailwind selectedIndex={selectedIndex} values={values} onChange={setSelectedIndex}/>
+                    </div>
+                    <p className={"absolute text-xs bottom-0 mb-2 italic font-poppins"}>TODO: popover meer dynamisch sizeable maken. werkt nu op hardcoded 264px</p>
+                </PiCard>
+                <PiCard>
+                    <h2 className={"font-poppins font-bold mb-5"}>Radix Select (brol)</h2>
+                    <div className={"w-264"}>
+                        <PiSelect_Radix selectedIndex={selectedIndex} values={values} onChange={setSelectedIndex}/>
+                    </div>
+                    <p className={"absolute text-xs bottom-0 mb-2 italic font-poppins"}>Popover werkt niet als je de component verplaatst (booooo). Will try dropdown menu next.</p>
+                </PiCard>
+
+            </div>
+        </>
+
     );
 }
 
