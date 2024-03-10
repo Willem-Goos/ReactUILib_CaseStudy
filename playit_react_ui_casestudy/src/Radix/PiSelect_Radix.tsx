@@ -26,34 +26,10 @@ export default function PiSelect_Radix(props: PiSelectProps) {
             </Select.Item>
         }
     );
-
-    const backup = <div ref={myDivRef}>
-        <Select.Root onValueChange={onValueChanged} defaultValue={values[selectedIndex]}>
-            <Select.Trigger className="SelectTrigger">
-                <Select.Value className={"SelectValue"}>
-                    {values[selectedIndex]}
-                </Select.Value>
-                <Select.Icon className={"SelectIcon"}>
-                    <ChevronDownIcon width={20} height={20}/>
-                </Select.Icon>
-            </Select.Trigger>
-            <Select.Portal >
-                <Select.Content className="SelectContent">
-                    <Select.ScrollUpButton/>
-                    <Select.Viewport className="SelectViewport">
-                        <div>test</div>
-                        <Select.Separator/>
-                    </Select.Viewport>
-                    <Select.ScrollDownButton/>
-                    <Select.Arrow/>
-                </Select.Content>
-            </Select.Portal>
-        </Select.Root>
-    </div>;
     
     return (
-        <div ref={myDivRef}>
-            <Select.Root onValueChange={onValueChanged} defaultValue={values[selectedIndex]} >
+        <div ref={myDivRef} className={"relative"}>
+            <Select.Root onValueChange={onValueChanged} defaultValue={values[selectedIndex]}>
                 <Select.Trigger className="SelectTrigger">
                     <Select.Value className={"SelectValue"}>
                         {values[selectedIndex]}
@@ -62,16 +38,14 @@ export default function PiSelect_Radix(props: PiSelectProps) {
                         <ChevronDownIcon width={20} height={20}/>
                     </Select.Icon>
                 </Select.Trigger>
-                <Select.Portal>
-                    <Select.Content className="SelectContent">
-                        <Select.ScrollUpButton/>
-                        <Select.Viewport className="SelectViewport">
-                            {options}                            
-                        </Select.Viewport>
-                        <Select.ScrollDownButton/>
-                        <Select.Arrow/>
-                    </Select.Content>
-                </Select.Portal>
+                <Select.Content className="fixed w-264 bg-white">
+                    <Select.ScrollUpButton/>
+                    <Select.Viewport className="shadow-lg bg-white">
+                        {options}
+                    </Select.Viewport>
+                    <Select.ScrollDownButton/>
+                    <Select.Arrow/>
+                </Select.Content>
             </Select.Root>
         </div>
     );

@@ -23,14 +23,14 @@ function App() {
                     <p className={"absolute text-xs bottom-0 mb-2 italic font-poppins"}>TODO: popover meer dynamisch sizeable maken. werkt nu op hardcoded 264px</p>
                 </PiCard>
                 <PiCard>
-                    <h2 className={"font-poppins font-bold mb-5"}>Radix Select (brol)</h2>
+                    <h2 className={"font-poppins font-bold mb-5"}>Radix Select + Regular CSS</h2>
                     <div className={"w-264"}>
                         <PiSelect_Radix selectedIndex={selectedIndex} values={values} onChange={setSelectedIndex}/>
                     </div>
-                    <p className={"absolute text-xs bottom-0 mb-2 italic font-poppins"}><b>Known issue</b>: Portal werkt niet wanneer radix select niet rechtstreeks onder de body staat. </p>
+                    <p className={"absolute text-xs bottom-0 mb-2 italic font-poppins"}></p>
                 </PiCard>
                 <PiCard>
-                    <h2 className={"font-poppins font-bold mb-5"}>Radix Dropdown + Tailwind css</h2>
+                    <h2 className={"font-poppins font-bold mb-5"}>Radix Dropdown + Tailwind CSS</h2>
                     <div className={"w-264"}>
                         <PiDropdown_Radix selectedIndex={selectedIndex} values={values} onChange={setSelectedIndex}/>
                     </div>

@@ -5,6 +5,7 @@ TAILWIND
 @tailwind components;
 @tailwind utilities;
 
+
 /*===
 FONTS
 ====*/
@@ -13,6 +14,8 @@ FONTS
 
 /*===
 global vars
+    @apply w-screen h-screen bg-dark-100;
+
 ====*/
 body {
     --pi-blue: #3AC4FF;

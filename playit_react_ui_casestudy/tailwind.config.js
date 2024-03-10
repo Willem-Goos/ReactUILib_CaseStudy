@@ -1,9 +1,6 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  future: {
-    // removeDeprecatedGapUtilities: true,
-    // purgeLayersByDefault: true,
-  },
-  purge: [],
+  content: ["./src/**/*.{html,js,ts,tsx}"],
   theme: {
     colors: {
       'piblue': '#3AC4FF',
@@ -38,8 +35,8 @@ module.exports = {
       zIndex: {
         '1000': '1000'
       }
-      },
+    },
   },
-  variants: {},
   plugins: [],
 }
+
