@@ -17,4 +17,5 @@ global vars
 body {
     --pi-blue: #3AC4FF;
     --pi-main-hover: rgba(80, 192, 255, 0.21);
+    @apply w-screen h-screen bg-dark-100;
 }

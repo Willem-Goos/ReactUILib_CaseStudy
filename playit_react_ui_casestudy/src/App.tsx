@@ -5,6 +5,7 @@ import PiSelect_Radix from "./Radix/PiSelect_Radix";
 import {useState} from "react";
 import PiSelect_Tailwind from "./Tailwind/PiSelect_Tailwind";
 import PiCard from "./Tailwind/PiCard";
+import PiDropdown_Radix from "./Radix/PiDropdown_Radix";
 
 function App() {
 
@@ -13,7 +14,7 @@ function App() {
 
     return (
         <>
-            <div className="App flex gap-4 bg-dark-100 w-screen h-screen p-5">
+            <div className="flex gap-4 p-5">
                 <PiCard>
                     <h2 className={"font-poppins font-bold mb-5"}>Tailwind + Headless UI</h2>
                     <div className={"w-264"}>
@@ -28,7 +29,13 @@ function App() {
                     </div>
                     <p className={"absolute text-xs bottom-0 mb-2 italic font-poppins"}>Popover werkt niet als je de component verplaatst (booooo). Will try dropdown menu next.</p>
                 </PiCard>
-
+                <PiCard>
+                    <h2 className={"font-poppins font-bold mb-5"}>Radix Dropdown + Tailwind css</h2>
+                    <div className={"w-264"}>
+                        <PiDropdown_Radix selectedIndex={selectedIndex} values={values} onChange={setSelectedIndex}/>
+                    </div>
+                    <p className={"absolute text-xs bottom-0 mb-2 italic font-poppins"}></p>
+                </PiCard>
             </div>
         </>
 

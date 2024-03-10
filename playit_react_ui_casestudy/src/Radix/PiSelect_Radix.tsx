@@ -1,5 +1,5 @@
 ﻿import * as Select from '@radix-ui/react-select';
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import "./PiSelect_Radix.css";
 import {ChevronDownIcon} from "@radix-ui/react-icons";
 
@@ -14,7 +14,7 @@ export interface PiSelectProps {
 export default function PiSelect_Radix(props: PiSelectProps) {
     const {selectedIndex, values, onChange} = {...props};
     const [selected, setSelected] = useState<string>("not-set");
-
+    const myDivRef = useRef<HTMLDivElement | null>(null);
     const onValueChanged = (value: string) => {
         var index = values.indexOf(value);
         onChange(index);
@@ -27,26 +27,53 @@ export default function PiSelect_Radix(props: PiSelectProps) {
         }
     );
 
-    return (<Select.Root onValueChange={onValueChanged} defaultValue={values[selectedIndex]}>
-        <Select.Trigger className="SelectTrigger">
-            <Select.Value className={"SelectValue"}>
-                {values[selectedIndex]}
-            </Select.Value>
-            <Select.Icon className={"SelectIcon"}>
-                <ChevronDownIcon width={20} height={20}/>
-            </Select.Icon>
-        </Select.Trigger>
-        <Select.Portal>
-            <Select.Content className="SelectContent">
-                <Select.ScrollUpButton/>
-                <Select.Viewport className="SelectViewport">
-                    {options}
-                    <Select.Separator/>
-                </Select.Viewport>
-                <Select.ScrollDownButton/>
-                <Select.Arrow/>
-            </Select.Content>
-        </Select.Portal>
-    </Select.Root>);
+    const backup = <div ref={myDivRef}>
+        <Select.Root onValueChange={onValueChanged} defaultValue={values[selectedIndex]}>
+            <Select.Trigger className="SelectTrigger">
+                <Select.Value className={"SelectValue"}>
+                    {values[selectedIndex]}
+                </Select.Value>
+                <Select.Icon className={"SelectIcon"}>
+                    <ChevronDownIcon width={20} height={20}/>
+                </Select.Icon>
+            </Select.Trigger>
+            <Select.Portal >
+                <Select.Content className="SelectContent">
+                    <Select.ScrollUpButton/>
+                    <Select.Viewport className="SelectViewport">
+                        <div>test</div>
+                        <Select.Separator/>
+                    </Select.Viewport>
+                    <Select.ScrollDownButton/>
+                    <Select.Arrow/>
+                </Select.Content>
+            </Select.Portal>
+        </Select.Root>
+    </div>;
     
+    return (
+        <div ref={myDivRef}>
+            <Select.Root onValueChange={onValueChanged} defaultValue={values[selectedIndex]} >
+                <Select.Trigger className="SelectTrigger">
+                    <Select.Value className={"SelectValue"}>
+                        {values[selectedIndex]}
+                    </Select.Value>
+                    <Select.Icon className={"SelectIcon"}>
+                        <ChevronDownIcon width={20} height={20}/>
+                    </Select.Icon>
+                </Select.Trigger>
+                <Select.Portal>
+                    <Select.Content className="SelectContent">
+                        <Select.ScrollUpButton/>
+                        <Select.Viewport className="SelectViewport">
+                            {options}                            
+                        </Select.Viewport>
+                        <Select.ScrollDownButton/>
+                        <Select.Arrow/>
+                    </Select.Content>
+                </Select.Portal>
+            </Select.Root>
+        </div>
+    );
+
 }
