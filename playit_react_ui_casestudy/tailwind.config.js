@@ -12,6 +12,10 @@ module.exports = {
       'dark': {
         '100': '#333333',
         '200': '#FF252526'
+      },
+      'pi': {
+        'blue': '#3AC4FF',
+        'bluehover': 'rgba(80, 192, 255, 0.21)',
       }
     },
     extend: {
@@ -30,6 +34,9 @@ module.exports = {
       },
       borderRadius: {
         'pi5': '5px'
+      },
+      zIndex: {
+        '1000': '1000'
       }
       },
   },

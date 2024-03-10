@@ -31,7 +31,7 @@ export default function PiSelect_Tailwind(props: PiSelectProps) {
                             </div>
                         </div>
                     </Menu.Button>
-                    <Menu.Items className={"absolute z-30 w-264 mt-2 origin-top-right rounded-pi5 bg-white shadow-lg align-middle focus:outline-none bg-white"}>{menuItems}</Menu.Items>
+                    <Menu.Items className={"w-264 mt-2 origin-top-right rounded-pi5 bg-white shadow-lg align-middle focus:outline-none bg-white"}>{menuItems}</Menu.Items>
                 </>
             )}
         </Menu>
