@@ -5,7 +5,7 @@ import classNames from "classnames";
 export default function PiSelect_Tailwind(props: PiSelectProps) {
     const {onChange, values} = {...props};
     const menuItems = values.map((value, index) => {
-        return <Menu.Item>{({active}) => <div className={"hover:bg-pibluehover cursor-pointer my-2 h-36 px-2"}>
+        return <Menu.Item>{({active}) => <div className={"hover:bg-pibluehover cursor-pointer my-2 h-36 px-2 text-black"}>
             <span className={"inline-block align-middle"}>{value}</span>
         </div>}
         </Menu.Item>;
@@ -18,7 +18,7 @@ export default function PiSelect_Tailwind(props: PiSelectProps) {
                     <Menu.Button className={"bg-white w-full box-border h-36 border-2 border-solid border-piblue rounded-3xl focus:outline-none cursor-pointer hover:bg-pibluehover"}>
                         <div className={"w-full px-4 flex justify-center"}>
                             <div className={"flex"}>
-                                <span className={"m-auto font-poppins"}>More</span>
+                                <span className={"m-auto font-poppins text-black"}>More</span>
                             </div>
                             
                             <div className={classNames({

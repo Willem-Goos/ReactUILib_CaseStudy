@@ -1,11 +1,10 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
 import PiSelect_Radix from "./Radix/PiSelect_Radix";
-import {useState} from "react";
 import PiSelect_Tailwind from "./Tailwind/PiSelect_Tailwind";
 import PiCard from "./Tailwind/PiCard";
 import PiDropdown_Radix from "./Radix/PiDropdown_Radix";
+import Daisy_Dropdown from "./DaisyUI/Daisy_Dropdown";
 
 function App() {
 
@@ -37,6 +36,15 @@ function App() {
                     <span>test</span>
                     <p className={"absolute text-xs bottom-0 mb-2 italic font-poppins"}></p>
                 </PiCard>
+                <PiCard>
+                    <h2 className={"font-poppins font-bold mb-5"}>Daisy UI (Tailwind lib)</h2>
+                    <div className={"w-264"}>
+                        <Daisy_Dropdown selectedIndex={selectedIndex} values={values} onChange={setSelectedIndex}/>
+                    </div>
+                    <span>test</span>
+                    <p className={"absolute text-xs bottom-0 mb-2 italic font-poppins"}></p>
+                </PiCard>
+
             </div>
         </>
 
